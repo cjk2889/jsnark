@@ -44,7 +44,7 @@ public class ECDHKeyExchangeGadget extends Gadget {
 
 	// Note: this parameterization assumes that the underlying field has
 	// Config.FIELD_PRIME =
-	// 21888242871839275222246405745257275088548364400416034343698204186575808495617
+	// 52435875175126190479447740508185965837690552500527637822603658699938581184513
 
 	public final static int SECRET_BITWIDTH = 253; // number of bits in the
 													// exponent. Note that the

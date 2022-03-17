@@ -5,8 +5,8 @@ This is a Java library for building circuits for preprocessing zk-SNARKs. The li
 - `libsnark/jsnark_interface`: A C++ interface to libsnark which accepts circuits produced by either the circuit builder or by Pinocchio's compiler directly.
 
 __Updates__: 
-- The jsnark library now has several cryptographic gadgets used in earlier work ([Hawk](https://eprint.iacr.org/2015/675.pdf) and [C0C0](https://eprint.iacr.org/2015/1093.pdf)). Some of the gadgets like RSA and AES were improved by techniques from xJsnark. The gadgets can be found in [src/examples/gadgets](https://github.com/akosba/jsnark/tree/master/JsnarkCircuitBuilder/src/examples/gadgets).
-- xJsnark, a high-level programming framework for zk-SNARKs is available [here](https://github.com/akosba/xjsnark). xJsnark uses an enhanced version of jsnark in its back end, and aims at reducing the background/effort required by low-level libraries, while generating efficient circuits from the high-level code. Sample examples can be found in this [page](https://github.com/akosba/xjsnark#examples-included).
+- The jsnark library now has several cryptographic gadgets used in earlier work ([Hawk](https://eprint.iacr.org/2015/675.pdf) and [C0C0](https://eprint.iacr.org/2015/1093.pdf)). Some of the gadgets like RSA and AES were improved by techniques from xJsnark. The gadgets can be found in [src/examples/gadgets](https://github.com/cjk2889/jsnark/tree/master/JsnarkCircuitBuilder/src/examples/gadgets).
+- xJsnark, a high-level programming framework for zk-SNARKs is available [here](https://github.com/akosba/xjsnark). xJsnark uses an enhanced version of jsnark in its back end, and aims at reducing the background/effort required by low-level libraries, while generating efficient circuits from the high-level code. Sample examples can be found in this [page](https://github.com/cjk2889/xjsnark#examples-included).
 
 ### Prerequisites
 
@@ -43,7 +43,7 @@ Verify the installed version by `java -version`. In case it is not 1.8 or later,
 
 ### jsnark Installation Instructions
 
-- Run `$ git clone --recursive https://github.com/akosba/jsnark.git`
+- Run `$ git clone --recursive https://github.com/cjk2889/jsnark.git`
 
 - Run:
 
@@ -51,7 +51,7 @@ Verify the installed version by `java -version`. In case it is not 1.8 or later,
 
 	`$ git submodule init && git submodule update`
 
-	`$ mkdir build && cd build && cmake ..`
+	`$ mkdir build && cd build && cmake .. -DCURVE=BLS12_381`
 
 	`$ make`  
 
@@ -94,7 +94,7 @@ Note: An IDE, e.g. Eclipse, or possibly the ant tool can be used instead to buil
 
 #### Cryptographic Primtives
 
-Several cryptographic gadgets spanning hashes, block ciphers, key exchange, public key encryption and signatures can be found in [src/examples/gadgets](https://github.com/akosba/jsnark/tree/master/JsnarkCircuitBuilder/src/examples/gadgets). We list some notes regarding few gadgets below:
+Several cryptographic gadgets spanning hashes, block ciphers, key exchange, public key encryption and signatures can be found in [src/examples/gadgets](https://github.com/cjk2889/jsnark/tree/master/JsnarkCircuitBuilder/src/examples/gadgets). We list some notes regarding few gadgets below:
 
 - __SHA256 gadget__: This is a manually-optimized SHA256 Gadget for variable-length input with a padding option. The code is written to be similar to how SHA256 is written in C or Java, except for three main things: keeping track of bitwidth, manual optimizations for computation of ch and maj, and the explicit handling of overflows (A more recent work ([xJsnark](https://github.com/akosba/xjsnark)) reduces/eliminates the need for such differences, while still generating optimized outputs). The current SHA256 gadget implementation in jsnark costs about 25650 constraints for one block depending on the number and the bitwidth of the input wires (Further minor optimizations to the existing implementation in jsnark are possible). 
 - __RSA gadgets__: This includes public key encryption gadgets based on both PKCS #1 V2.2 (OAEP) and PKCS #1 v1.5, and also a signature gadget using PKCS #1 v1.5. Internally, these gadgets used the long integer optimizations used in xJsnark.

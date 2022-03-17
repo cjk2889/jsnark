@@ -230,7 +230,7 @@ public class ECDHKeyExchange_Test extends TestCase {
 	
 //		Sage Script generating the above values:
 //		
-//		p = 21888242871839275222246405745257275088548364400416034343698204186575808495617
+//		p = 52435875175126190479447740508185965837690552500527637822603658699938581184513
 //		K.<a> = NumberField(x-1)
 //		aa = 126932
 //		E = EllipticCurve(GF(p),[0,aa,0,1,0])

@@ -4,9 +4,12 @@
 *.d
 *.*~
 bin
+.vscode
+.idea
 .project
 .settings
 .classpath
 *.arith
 !JsnarkCirctuitBuilder/auction_10.arith
 *.in
+**/bcprov-jdk15on-159.jar
