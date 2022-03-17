@@ -19,17 +19,21 @@ For Ubuntu 14.04, the following can be done to install the above:
 
 - To install libsnark prerequisites: 
 
-	`$ sudo apt-get install build-essential cmake git libgmp3-dev libprocps3-dev python-markdown libboost-all-dev libssl-dev`
+	`$ sudo apt-get install build-essential cmake git libgmp3-dev libprocps-dev python-markdown libboost-all-dev libssl-dev libsodium-dev`
 
 Note: Don't clone libsnark from `https://github.com/scipr-lab/libsnark`. Make sure to use the modified libsnark submodule within the jsnark cloned repo in the next section.
 
 - To install JDK 8: 
 
-	`$ sudo add-apt-repository ppa:webupd8team/java`
+    `$ sudo add-apt-repository ppa:webupd8team/java`
 
-	`$ sudo apt-get update`
+    `$ sudo apt-get update`
 
-	`$ sudo apt-get install oracle-java8-installer`
+    `$ sudo apt-get install oracle-java8-installer`
+
+- or you can use open JDK 8:
+
+  `$ sudo apt-get install openjdk-8-jdk openjdk-8-jre`
 
 Verify the installed version by `java -version`. In case it is not 1.8 or later, try `$ sudo update-java-alternatives -s java-8-oracle`
 
